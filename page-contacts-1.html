@@ -188,27 +188,27 @@
       <!-- Address & Map -->
       <div class="g-pos-rel">
         <div class="container">
-          <div class="row">
+          < class="row">
             <div class="col-md-7 align-self-center g-py-100">
               <!-- Address -->
               <ul class="nav u-nav-v1-1 ml-auto mt-auto" role="tablist" data-target="nav-1-1-default-hor-left"
                   data-tabs-mobile-type="slide-up-down"
                   data-btn-classes="btn btn-md btn-block rounded-0 u-btn-outline-lightgray">
                 <li class="nav-item">
-                  <a class="nav-link active g-brd-around g-brd-gray-light-v4 g-brd-main--active g-color-text g-color-white--active g-bg-secondary g-bg-main--active g-rounded-left-3"
-                     data-toggle="tab" href="#map-madrid-centro" role="tab">Madrid Centro</a>
+                  <a class="switch-map nav-link active g-brd-around g-brd-gray-light-v4 g-brd-main--active g-color-text g-color-white--active g-bg-secondary g-bg-main--active g-rounded-left-3"
+                     data-toggle="tab" data-lat="40.4264009" data-lng="-3.7137267" href="#">Madrid Centro</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link g-brd-around g-brd-gray-light-v4 g-brd-main--active g-color-text g-color-white--active g-bg-secondary g-bg-main--active g-rounded-right-3"
-                       data-toggle="tab" href="#map-madrid-oeste" role="tab">Madrid Oeste</a>
+                    <a class="switch-map nav-link g-brd-around g-brd-gray-light-v4 g-brd-main--active g-color-text g-color-white--active g-bg-secondary g-bg-main--active g-rounded-right-3"
+                       data-toggle="tab" data-lat="40.4056265" data-lng="-3.9961008" href="#">Madrid Oeste</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link g-brd-around g-brd-gray-light-v4 g-brd-main--active g-color-text g-color-white--active g-bg-secondary g-bg-main--active g-rounded-right-3"
-                     data-toggle="tab" href="#map-madrid-norte" role="tab">Madrid Norte</a>
+                  <a class="switch-map nav-link g-brd-around g-brd-gray-light-v4 g-brd-main--active g-color-text g-color-white--active g-bg-secondary g-bg-main--active g-rounded-right-3"
+                     data-toggle="tab" data-lat="40.5979969" data-lng="-3.7060957" href="#">Madrid Norte</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link g-brd-around g-brd-gray-light-v4 g-brd-main--active g-color-text g-color-white--active g-bg-secondary g-bg-main--active g-rounded-right-3"
-                     data-toggle="tab" href="#map-madrid-sur" role="tab">Madrid Sur</a>
+                  <a class="switch-map nav-link g-brd-around g-brd-gray-light-v4 g-brd-main--active g-color-text g-color-white--active g-bg-secondary g-bg-main--active g-rounded-right-3"
+                     data-toggle="tab" data-lat="40.3193221" data-lng="-3.8746036" href="#">Madrid Sur</a>
                 </li>
               </ul>
               <h2 class="h1 g-mb-60">Dónde estamos</h2>
@@ -244,21 +244,20 @@
               </div>
               <!-- End Address -->
             </div>
-
-            <div id="map-madrid-centro" class="col-md-5 align-self-center h-100 g-pos-abs--md g-top-0 g-right-0 g-pr-0">
-              <!-- Google Map -->
-              <div id="GMapCustomized-light" class="js-g-map embed-responsive embed-responsive-21by9 h-100"
-                   data-type="custom"
-                   data-lat="40.4264009"
-                   data-lng="-3.7137267"
-                   data-zoom="15"
-                   data-title="Oficina"
-                   data-styles='[["", "", [{"saturation":-100},{"lightness":40},{"visibility":"simplified"}]], ["", "labels", [{"visibility":"on"}]], ["water", "", [{"color":"#888"}]] ]'
-                   data-pin="true"
-                   data-pin-icon="assets/img/icons/pin/marker.png">
+              <div id="map-madrid-centro" class="col-md-5 align-self-center h-100 g-pos-abs--md g-top-0 g-right-0 g-pr-0 tab-pane show active" role="tabpanel">
+                <!-- Google Map -->
+                <div id="GMapCustomized-light" class="js-g-map embed-responsive embed-responsive-21by9 h-100"
+                     data-type="custom"
+                     data-lat="40.4264009"
+                     data-lng="-3.7137267"
+                     data-zoom="15"
+                     data-title="Oficina"
+                     data-styles='[["", "", [{"saturation":-100},{"lightness":40},{"visibility":"simplified"}]], ["", "labels", [{"visibility":"on"}]], ["water", "", [{"color":"#888"}]] ]'
+                     data-pin="true"
+                     data-pin-icon="assets/img/icons/pin/marker.png">
+                </div>
+                <!-- End Google Map -->
               </div>
-              <!-- End Google Map -->
-            </div>
           </div>
         </div>
       </div>
@@ -418,12 +417,22 @@
 
         // initialization of go to
         $.HSCore.components.HSGoTo.init('.js-go-to');
+
       });
 
       // initialization of google map
       function initMap() {
         $.HSCore.components.HSGMap.init('.js-g-map');
       }
+
+      $(".switch-map").on('click', function(event){
+          let dataLat = $(this).data('lat');
+          let dataLng = $(this).data('lng');
+          event.preventDefault();
+          $("#GMapCustomized-light").data('lat', dataLat);
+          $("#GMapCustomized-light").data('lng', dataLng);
+          $.HSCore.components.HSGMap.init('.js-g-map');
+      });
     </script>
 
     <script src="//maps.googleapis.com/maps/api/js?key=AIzaSyAtt1z99GtrHZt_IcnK-wryNsQ30A112J0&callback=initMap" async defer></script>
