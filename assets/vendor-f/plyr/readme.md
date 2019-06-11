@@ -97,7 +97,7 @@ Plyr extends upon the standard HTML5 markup so that's all you need for those typ
   <source src="/path/to/video.mp4" type="video/mp4">
   <source src="/path/to/video.webm" type="video/webm">
   <!-- Captions are optional -->
-  <track kind="captions" label="English captions" src="/path/to/captions.vtt" srclang="en" default>
+  <track kind="captions" label="English captions" src="/path/to/captions.vtt" srclang="es" default>
 </video>
 ```
 
@@ -740,7 +740,7 @@ More details on the object parameters
     <tr>
       <td><code>tracks</code></td>
       <td>Array</td>
-      <td>An array of track objects. Each element in the array is mapped directly to a track element and any keys mapped directly to HTML attributes so as in the example above, it will render as `<track kind="captions" label="English" srclang="en" src="https://cdn.selz.com/plyr/1.0/example_captions_en.vtt" default>`. Booleans are converted to HTML5 value-less attributes.</td>
+      <td>An array of track objects. Each element in the array is mapped directly to a track element and any keys mapped directly to HTML attributes so as in the example above, it will render as `<track kind="captions" label="English" srclang="es" src="https://cdn.selz.com/plyr/1.0/example_captions_en.vtt" default>`. Booleans are converted to HTML5 value-less attributes.</td>
     </tr>
   </tbody>
 </table>
