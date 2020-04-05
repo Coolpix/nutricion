@@ -157,7 +157,7 @@
     <!-- End Header -->
 
     <!-- Breadcrumbs -->
-    <section class="g-brd-bottom g-brd-gray-light-v4 g-py-30 g-mt-80">
+    <!-- <section class="g-brd-bottom g-brd-gray-light-v4 g-py-30 g-mt-80">
         <div class="container">
             <ul class="d-flex justify-content-between u-list-inline">
                 <li class="list-inline-item g-mr-15">
@@ -172,7 +172,7 @@
                 </li>
             </ul>
         </div>
-    </section>
+    </section> -->
     <!-- End Breadcrumbs -->
 
     <!-- Contact Form -->
@@ -183,28 +183,28 @@
                 <p class="g-line-height-2">Si tienes cualquier pregunta puedes ponerte en contacto con nosotros a través de este formulario o de la cuenta de correo info@nutricionenmovimiento.es.</p>
             </div>
 
-            <form>
+            <form method="post" action="mail.php">
                 <div class="row">
                     <div class="col-md-6">
                         <div class="row">
                             <div class="col-sm-6 g-mb-35">
                                 <label class="g-color-main g-font-weight-500 mb-3">Nombre</label>
-                                <input class="form-control g-color-main g-brd-gray-light-v4 g-brd-primary--focus g-bg-white rounded g-py-13 g-px-15" type="text" placeholder="Nombre">
+                                <input class="form-control g-color-main g-brd-gray-light-v4 g-brd-primary--focus g-bg-white rounded g-py-13 g-px-15" type="text" placeholder="Nombre" name="name">
                             </div>
 
                             <div class="col-sm-6 g-mb-35">
                                 <label class="g-color-main g-font-weight-500 mb-3">Email</label>
-                                <input class="form-control g-color-main g-brd-gray-light-v4 g-brd-primary--focus g-bg-white rounded g-py-13 g-px-15" type="email" placeholder="Email">
+                                <input class="form-control g-color-main g-brd-gray-light-v4 g-brd-primary--focus g-bg-white rounded g-py-13 g-px-15" type="email" placeholder="Email" name="email">
                             </div>
 
                             <div class="col-sm-6 g-mb-35">
                                 <label class="g-color-main g-font-weight-500 mb-3">Teléfono</label>
-                                <input class="form-control g-color-main g-brd-gray-light-v4 g-brd-primary--focus g-bg-white rounded g-py-13 g-px-15" type="tel" placeholder="Teléfono">
+                                <input class="form-control g-color-main g-brd-gray-light-v4 g-brd-primary--focus g-bg-white rounded g-py-13 g-px-15" type="tel" placeholder="Teléfono" name="phone">
                             </div>
 
                             <div class="col-sm-6 g-mb-35">
                                 <label class="g-color-main g-font-weight-500 mb-3">Asunto</label>
-                                <input class="form-control g-color-main g-brd-gray-light-v4 g-brd-primary--focus g-bg-white rounded g-py-13 g-px-15" type="text" placeholder="Asunto">
+                                <input class="form-control g-color-main g-brd-gray-light-v4 g-brd-primary--focus g-bg-white rounded g-py-13 g-px-15" type="text" placeholder="Asunto" name="topic">
                             </div>
                         </div>
                     </div>
@@ -212,11 +212,11 @@
                     <div class="col-md-6">
                         <div class="mb-4">
                             <label class="g-color-main g-font-weight-500 mb-3">Mensaje</label>
-                            <textarea class="form-control g-color-main g-brd-gray-light-v4 g-brd-primary--focus g-bg-secondary rounded g-py-13 g-px-15" rows="8" placeholder="Tu mensaje"></textarea>
+                            <textarea class="form-control g-color-main g-brd-gray-light-v4 g-brd-primary--focus g-bg-secondary rounded g-py-13 g-px-15" rows="8" placeholder="Tu mensaje" name="message"></textarea>
                         </div>
 
                         <div class="text-right">
-                            <button class="btn u-btn-primary g-font-weight-600 g-font-size-13 text-uppercase rounded-3 g-py-12 g-px-35" type="submit" role="button">Enviar</button>
+                            <button class="btn u-btn-primary g-font-weight-600 g-font-size-13 text-uppercase rounded-3 g-py-12 g-px-35" type="submit" role="button" name="submit">Enviar</button>
                         </div>
                     </div>
                 </div>
@@ -362,6 +362,7 @@
     function initMap() {
         $.HSCore.components.HSGMap.init('.js-g-map');
     }
+
 </script>
 
 <script src="//maps.googleapis.com/maps/api/js?key=AIzaSyAtt1z99GtrHZt_IcnK-wryNsQ30A112J0&callback=initMap" async defer></script>
