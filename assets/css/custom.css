@@ -1,3 +1,15 @@
 .info {
     display: none;
 }
+
+#page-container {
+    position: relative;
+}
+
+
+
+#footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
